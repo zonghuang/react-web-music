@@ -1,25 +1,17 @@
-import React, { memo, useEffect } from 'react';
-import { renderRoutes } from 'react-router-config';
-import { NavLink } from 'react-router-dom';
+import React, {memo} from 'react';
+import { NavLink } from "react-router-dom";
+import { renderRoutes } from "react-router-config";
 
-import { dicoverMenu } from "@/common/local-data";
-import request from "@/services/request";
+import { 
+  dicoverMenu
+} from "@/services/local-data";
 
 import {
   DiscoverWrapper,
   TopMenu
-} from './style';
+} from "./style";
 
 export default memo(function Discover(props) {
-
-  useEffect(() => {
-    request({
-      url: "/banner"
-    }).then(res => {
-      console.log(res);
-    })
-  }, [])
-
   const { route } = props;
 
   return (
@@ -32,7 +24,7 @@ export default memo(function Discover(props) {
                 <div className="item" key={item.title}>
                   <NavLink to={item.link}>{item.title}</NavLink>
                 </div>
-              )
+              );
             })
           }
         </TopMenu>

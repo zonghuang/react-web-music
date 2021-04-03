@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const AppFooterWrapper = styled.div`
   height: 172px;
@@ -11,7 +11,7 @@ export const AppFooterWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-`;
+`
 
 export const FooterLeft = styled.div`
   padding-top: 15px;
@@ -33,7 +33,7 @@ export const FooterLeft = styled.div`
       margin-right: 15px;
     }
   }
-`;
+`
 
 export const FooterRight = styled.ul`
   display: flex;
@@ -59,10 +59,10 @@ export const FooterRight = styled.ul`
     :nth-child(2) .link {
       background-position: 0 0;
     }
-    :nth-child(3) .link {
+    :nth-child(2) .link {
       background-position: -60px -50px;
     }
-    :nth-child(4) .link {
+    :nth-child(2) .link {
       background-position: 0 -101px;
     }
 
@@ -92,4 +92,4 @@ export const FooterRight = styled.ul`
       margin-top: 6px;
     }
   }
-`;
+`

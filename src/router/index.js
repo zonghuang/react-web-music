@@ -1,25 +1,37 @@
-import React from 'react';
+import React from "react";
 import { Redirect } from "react-router-dom";
 
-import Discover from "@/pages/discover";
-import Recommend from "../pages/discover/c-pages/recommend";
-import Ranking from "../pages/discover/c-pages/ranking";
-import Songs from "../pages/discover/c-pages/songs";
-import Djradio from "../pages/discover/c-pages/djradio";
-import Artist from "../pages/discover/c-pages/artist";
-import Album from "../pages/discover/c-pages/album";
+// import Discover from "../pages/discover";
+// import Recommend from "../pages/discover/c-pages/recommend";
+// import Ranking from "../pages/discover/c-pages/ranking";
+// import Songs from "../pages/discover/c-pages/songs";
+// import Djradio from "../pages/discover/c-pages/djradio";
+// import Artist from "../pages/discover/c-pages/artist";
+// import Album from "../pages/discover/c-pages/album";
+// import Player from "../pages/player";
 
-import Mine from "@/pages/mine";
-import Friend from "@/pages/friend";
+// import Friend from "../pages/friend";
+// import Mine from "../pages/mine";
 
+const Discover = React.lazy((_) => import("../pages/discover"));
+const Recommend = React.lazy((_) =>
+  import("../pages/discover/c-pages/recommend")
+);
+const Ranking = React.lazy((_) => import("../pages/discover/c-pages/ranking"));
+const Songs = React.lazy((_) => import("../pages/discover/c-pages/songs"));
+const Djradio = React.lazy((_) => import("../pages/discover/c-pages/djradio"));
+const Artist = React.lazy((_) => import("../pages/discover/c-pages/artist"));
+const Album = React.lazy((_) => import("../pages/discover/c-pages/album"));
+const Player = React.lazy((_) => import("../pages/player"));
 
-const routes = [
+const Friend = React.lazy((_) => import("../pages/friend"));
+const Mine = React.lazy((_) => import("../pages/mine"));
+
+export default [
   {
     path: "/",
     exact: true,
-    render: () => (
-      <Redirect to="/discover"/>
-    )
+    render: () => <Redirect to="/discover" />,
   },
   {
     path: "/discover",
@@ -28,45 +40,45 @@ const routes = [
       {
         path: "/discover",
         exact: true,
-        render: () => (
-          <Redirect to="/discover/recommend"/>
-        )
+        render: () => <Redirect to={"/discover/artist"} />,
       },
       {
         path: "/discover/recommend",
-        component: Recommend
+        component: Recommend,
       },
       {
         path: "/discover/ranking",
-        component: Ranking
+        component: Ranking,
       },
       {
         path: "/discover/songs",
-        component: Songs
+        component: Songs,
       },
       {
         path: "/discover/djradio",
         exact: true,
-        component: Djradio
+        component: Djradio,
       },
       {
         path: "/discover/artist",
-        component: Artist
+        component: Artist,
       },
       {
         path: "/discover/album",
-        component: Album
+        component: Album,
       },
-    ]
-  },
-  {
-    path: "/mine",
-    component: Mine
+      {
+        path: "/discover/player",
+        component: Player,
+      },
+    ],
   },
   {
     path: "/friend",
-    component: Friend
+    component: Friend,
+  },
+  {
+    path: "/mine",
+    component: Mine,
   },
 ];
-
-export default routes;
